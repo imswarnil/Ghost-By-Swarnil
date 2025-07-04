@@ -1,39 +1,32 @@
 
-// --- Post Hero (with Feature Image) ---
-.post-hero {
-  position: relative;
-  background-size: cover;
-  background-position: center center;
-  padding: 5rem 2rem;
-  border-radius: 12px;
-  margin-bottom: 3rem;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
 
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(21, 23, 26, 0.5);
-    backdrop-filter: blur(2px);
-    z-index: 1;
+// --- Design Tokens (for consistency) ---
+$radius-large: 12px;
+$shadow-heavy: 0 15px 40px rgba(0, 0, 0, 0.12);
+$shadow-light: 0 8px 25px rgba(0, 0, 0, 0.07);
+
+// --- Post Layout & Responsive Structure ---
+// No special layout SCSS needed. The HTML source order handles mobile stacking.
+
+// --- Creative Header (with a framed Feature Image) ---
+.post-header-creative {
+  text-align: center;
+  margin-bottom: 3rem;
+
+  .post-feature-image {
+    display: block;
+    width: 100%;
+    // Constrain tall images, while object-fit handles sizing gracefully
+    max-height: 500px; 
+    object-fit: cover;
+    border-radius: $radius-large;
+    box-shadow: $shadow-heavy;
+    margin-bottom: 2.5rem;
   }
-  .post-hero-content {
-    position: relative;
-    z-index: 2;
-    color: #ffffff;
-    .title {
-      color: #ffffff;
-      text-shadow: 0 2px 15px rgba(0, 0, 0, 0.4);
-    }
-    .post-meta {
-      color: rgba(255, 255, 255, 0.85);
-      font-size: 1rem;
-    }
+
+  .post-meta {
+    color: #7a7a7a;
+    font-size: 0.9rem;
   }
 }
 
@@ -55,7 +48,7 @@
   h2, h3, h4 {
     margin-top: 2.5em;
     margin-bottom: 1em;
-    scroll-margin-top: 2rem;
+    scroll-margin-top: 2rem; // So sticky nav doesn't overlap anchor links
   }
   a {
     font-weight: 600;
@@ -70,7 +63,7 @@
   }
   img {
     border-radius: 8px;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    box-shadow: $shadow-light;
   }
 }
 
@@ -80,16 +73,16 @@
   top: 2rem;
   display: flex;
   flex-direction: column;
-  gap: 1.5rem; // Adds space between widgets in the same sidebar
+  gap: 1.5rem; // Space between widgets
 }
 
-// --- Widget Box (Used for both sidebars for consistency) ---
+// --- Generic Widget Box ---
 .widget-box {
   background-color: #fdfdfd;
   border: 1px solid #f0f0f0;
-  border-radius: 8px;
+  border-radius: $radius-large;
   padding: 1.5rem;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.07);
+  box-shadow: $shadow-light;
 
   .widget-title {
     font-size: 0.8rem;
@@ -99,6 +92,7 @@
     margin-bottom: 1rem;
     letter-spacing: 0.5px;
   }
+  // Styling for lists within widgets (TOC, Recent Posts)
   ul {
     list-style: none;
     margin: 0;
@@ -120,7 +114,7 @@
   }
 }
 
-// Specific Widget Styles
+// --- Specific Widget Styles ---
 .adsense-placeholder {
   min-height: 250px;
   border: 2px dashed #dbdbdb;
