@@ -1,13 +1,13 @@
 // assets/css/post.scss
 ---
-// Empty front matter is required for Jekyll to process this file
+// Required front matter for Jekyll to process this file
 ---
 
 @charset "UTF-8";
 
-// --- Post Layout & Structure ---
+// --- Post Layout & Responsive Structure ---
 
-.post-layout {
+.post-layout-wrapper {
   // On mobile, this will reverse the column order,
   // placing the sidebar (TOC) *above* the main content.
   @media screen and (max-width: 1023px) {
@@ -16,55 +16,110 @@
   }
 }
 
-// --- Article Content Styling ---
+// --- Post Hero (with Feature Image) ---
 
-.post-article {
-  .post-header {
-    margin-bottom: 2rem;
-    .post-meta {
-      color: #7a7a7a; // Bulma's $grey
-      font-size: 0.9rem;
-    }
+.post-hero {
+  position: relative;
+  background-size: cover;
+  background-position: center center;
+  padding: 5rem 2rem;
+  border-radius: 12px;
+  margin-bottom: 3rem;
+  overflow: hidden; // Keeps overlay within the rounded corners
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+
+  // Dark overlay for text readability
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(21, 23, 26, 0.5); // A semi-transparent version of the site's base color
+    backdrop-filter: blur(2px); // Subtle blur for a more premium feel
+    z-index: 1;
   }
 
-  // Improve readability of the content rendered from Markdown
+  .post-hero-content {
+    position: relative;
+    z-index: 2;
+    color: #ffffff;
+
+    .title {
+      color: #ffffff;
+      // Add a subtle text-shadow to lift the text off the image
+      text-shadow: 0 2px 15px rgba(0, 0, 0, 0.4);
+    }
+
+    .post-meta {
+      color: rgba(255, 255, 255, 0.85);
+      font-size: 1rem;
+    }
+  }
+}
+
+// --- Fallback Header (for posts WITHOUT an image) ---
+
+.post-header-simple {
+  text-align: center;
+  margin-bottom: 3rem;
+
+  .post-meta {
+    color: #7a7a7a; // Bulma's $grey
+    font-size: 0.9rem;
+  }
+}
+
+// --- Article Content ---
+
+.post-article {
   .content {
-    line-height: 1.7;
+    line-height: 1.75;
     font-size: 1.1rem;
     color: #363636; // Bulma's $grey-darker
 
     h2, h3, h4 {
-      margin-top: 2em;
+      margin-top: 2.5em;
       margin-bottom: 1em;
+      scroll-margin-top: 2rem; // So sticky nav doesn't overlap anchor links
     }
 
-    // Style links within the content for better visibility
     a {
       font-weight: 600;
-      text-decoration: underline;
-      text-decoration-color: #dbdbdb; // Bulma's $border
+      color: #3eb0ef; // A nice, noticeable link color
+      text-decoration: none;
+      box-shadow: inset 0 -2px 0 rgba(62, 176, 239, 0.15);
       transition: all 0.2s ease-in-out;
-      
+
       &:hover {
-        background-color: #f1f1f1;
-        text-decoration-color: #4a4a4a;
+        background-color: rgba(62, 176, 239, 0.1);
+        box-shadow: inset 0 -2px 0 rgba(62, 176, 239, 0.3);
       }
+    }
+
+    // Give images in content a nice frame
+    img {
+      border-radius: 8px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
     }
   }
 }
 
-// --- Sidebar & Table of Contents (TOC) ---
+// --- Sidebar & Table of Contents ---
 
-// This is the container that will stick to the viewport
 .post-sidebar-sticky-wrapper {
   position: sticky;
-  top: 2rem; // Adjust this value to control the distance from the top
+  top: 2rem;
 }
 
-// The main TOC box styling, inspired by your screenshot
 .toc-box {
   background-color: #fdfdfd;
-  border: 1px solid #f0f0f0; // A very subtle border
+  border: 1px solid #f0f0f0;
   border-radius: 8px;
   padding: 1.5rem;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.07);
@@ -73,7 +128,7 @@
     font-size: 0.8rem;
     font-weight: 700;
     text-transform: uppercase;
-    color: #4a4a4a; // Bulma's $grey-dark
+    color: #4a4a4a;
     margin-bottom: 1rem;
     letter-spacing: 0.5px;
   }
@@ -81,34 +136,20 @@
   ul {
     list-style: none;
     margin: 0;
-    
-    li {
-      a {
-        padding: 0.6rem 0;
-        display: block;
-        color: #7a7a7a;
-        font-size: 0.95rem;
-        border-bottom: 1px solid #f0f0f0;
-        transition: all 0.2s ease;
-      }
-
-      // Last item should not have a border
-      &:last-child a {
-        border-bottom: none;
-      }
-      
-      // Hover state for links
-      &:hover a {
-        color: #363636;
-        transform: translateX(4px);
-      }
-      
-      // Active state (requires JavaScript to apply the .is-active class)
-      &.is-active a {
-        color: #363636;
-        font-weight: 700;
-        transform: translateX(4px);
-      }
+    li a {
+      padding: 0.6rem 0.2rem;
+      display: block;
+      color: #7a7a7a;
+      font-size: 0.95rem;
+      border-bottom: 1px solid #f0f0f0;
+      transition: all 0.2s ease;
+    }
+    li:last-child a { border-bottom: none; }
+    li:hover a { color: #363636; transform: translateX(4px); }
+    li.is-active a {
+      color: #363636;
+      font-weight: 700;
+      transform: translateX(4px);
     }
   }
 }
