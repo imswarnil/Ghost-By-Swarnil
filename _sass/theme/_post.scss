@@ -1,16 +1,6 @@
-// --- Post Layout & Responsive Structure ---
 
-.post-layout-wrapper {
-  // On mobile, this will reverse the column order,
-  // placing the sidebar (TOC) *above* the main content.
-  @media screen and (max-width: 1023px) {
-    display: flex;
-    flex-direction: column-reverse;
-  }
-}
 
 // --- Post Hero (with Feature Image) ---
-
 .post-hero {
   position: relative;
   background-size: cover;
@@ -18,37 +8,29 @@
   padding: 5rem 2rem;
   border-radius: 12px;
   margin-bottom: 3rem;
-  overflow: hidden; // Keeps overlay within the rounded corners
+  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
 
-  // Dark overlay for text readability
   &::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(21, 23, 26, 0.5); // A semi-transparent version of the site's base color
-    backdrop-filter: blur(2px); // Subtle blur for a more premium feel
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(21, 23, 26, 0.5);
+    backdrop-filter: blur(2px);
     z-index: 1;
   }
-
   .post-hero-content {
     position: relative;
     z-index: 2;
     color: #ffffff;
-
     .title {
       color: #ffffff;
-      // Add a subtle text-shadow to lift the text off the image
       text-shadow: 0 2px 15px rgba(0, 0, 0, 0.4);
     }
-
     .post-meta {
       color: rgba(255, 255, 255, 0.85);
       font-size: 1rem;
@@ -57,67 +39,60 @@
 }
 
 // --- Fallback Header (for posts WITHOUT an image) ---
-
 .post-header-simple {
   text-align: center;
   margin-bottom: 3rem;
-
   .post-meta {
-    color: #7a7a7a; // Bulma's $grey
+    color: #7a7a7a;
     font-size: 0.9rem;
   }
 }
 
 // --- Article Content ---
-
-.post-article {
-  .content {
-    line-height: 1.75;
-    font-size: 1.1rem;
-    color: #363636; // Bulma's $grey-darker
-
-    h2, h3, h4 {
-      margin-top: 2.5em;
-      margin-bottom: 1em;
-      scroll-margin-top: 2rem; // So sticky nav doesn't overlap anchor links
+.post-article .content {
+  line-height: 1.75;
+  font-size: 1.1rem;
+  color: #363636;
+  h2, h3, h4 {
+    margin-top: 2.5em;
+    margin-bottom: 1em;
+    scroll-margin-top: 2rem;
+  }
+  a {
+    font-weight: 600;
+    color: #3eb0ef;
+    text-decoration: none;
+    box-shadow: inset 0 -2px 0 rgba(62, 176, 239, 0.15);
+    transition: all 0.2s ease-in-out;
+    &:hover {
+      background-color: rgba(62, 176, 239, 0.1);
+      box-shadow: inset 0 -2px 0 rgba(62, 176, 239, 0.3);
     }
-
-    a {
-      font-weight: 600;
-      color: #3eb0ef; // A nice, noticeable link color
-      text-decoration: none;
-      box-shadow: inset 0 -2px 0 rgba(62, 176, 239, 0.15);
-      transition: all 0.2s ease-in-out;
-
-      &:hover {
-        background-color: rgba(62, 176, 239, 0.1);
-        box-shadow: inset 0 -2px 0 rgba(62, 176, 239, 0.3);
-      }
-    }
-
-    // Give images in content a nice frame
-    img {
-      border-radius: 8px;
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
-    }
+  }
+  img {
+    border-radius: 8px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
   }
 }
 
-// --- Sidebar & Table of Contents ---
-
+// --- Sidebar General Styling ---
 .post-sidebar-sticky-wrapper {
   position: sticky;
   top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem; // Adds space between widgets in the same sidebar
 }
 
-.toc-box {
+// --- Widget Box (Used for both sidebars for consistency) ---
+.widget-box {
   background-color: #fdfdfd;
   border: 1px solid #f0f0f0;
   border-radius: 8px;
   padding: 1.5rem;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.07);
 
-  .toc-title {
+  .widget-title {
     font-size: 0.8rem;
     font-weight: 700;
     text-transform: uppercase;
@@ -125,7 +100,6 @@
     margin-bottom: 1rem;
     letter-spacing: 0.5px;
   }
-
   ul {
     list-style: none;
     margin: 0;
@@ -145,4 +119,16 @@
       transform: translateX(4px);
     }
   }
+}
+
+// Specific Widget Styles
+.adsense-placeholder {
+  min-height: 250px;
+  border: 2px dashed #dbdbdb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #b5b5b5;
+  font-weight: 600;
+  border-radius: 8px;
 }
