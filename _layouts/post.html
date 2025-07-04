@@ -51,7 +51,8 @@ layout : default
           {% if page.sidebar %}
           <div class="column is-4-desktop">
             <div class="post-sidebar-sticky-wrapper">
-              {% include toc.html %}
+                    {% include toc.html html=content class='menu-list' h_min=2 h_max=3 %}
+
             </div>
           </div>
           {% endif %}
