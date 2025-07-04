@@ -63,11 +63,7 @@
       {% endif %}
     </div>
 
-    <!-- Categories -->
-    <div class="box">
-      <h3 class="title is-4 mb-4">Browse Categories</h3>
-      {% include nav-categories.html %}
-    </div>
+  
 
   {% elsif page.layout == "page" %}
     <!-- Page Layout Sidebar -->
@@ -84,9 +80,6 @@
 
   {% elsif page.layout == "categories" %}
     <!-- Categories Layout Sidebar -->
-    <div class="box">
-      <h3 class="title is-3 mb-4">Site Index</h3>
-      {% include nav-categories.html %}
-    </div>
+   
   {% endif %}
 </aside>
