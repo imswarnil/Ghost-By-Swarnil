@@ -1,0 +1,64 @@
+---
+layout : default
+---
+
+<section class="section">
+      <div class="container">
+        <!-- 
+          The .post-layout class is key for responsiveness.
+          On mobile, it uses flex-direction: column-reverse to put the sidebar on top.
+        -->
+        <div class="columns post-layout">
+
+          <!-- Main Article Column (takes up most of the space on desktop) -->
+          <div class="column is-8-desktop">
+            <article class="post-article">
+              <header class="post-header has-text-centered">
+                <h1 class="title is-1">{{ page.title }}</h1>
+                <p class="post-meta">
+                  Posted by {{ page.author }} on {{ page.date | date: "%B %d, %Y" }}
+                </p>
+              </header>
+
+              <hr>
+              
+              <!-- 
+                The .content class from Bulma automatically styles HTML elements
+                generated from your Markdown (h1, p, ul, etc.).
+              -->
+              <div class="content post-content">
+                {{ content }}
+              </div>
+
+              <!-- You can add other post elements here like tags, author bio, or comments -->
+              {% if page.comments %}
+                <hr>
+                <div id="comments">
+                  <!-- Comments section integration would go here -->
+                  <h2 class="title is-4">Comments</h2>
+                  <p>Comments are enabled for this post.</p>
+                </div>
+              {% endif %}
+            </article>
+          </div>
+
+          <!-- 
+            Sidebar Column - This will only appear if `sidebar: true` is in your front matter.
+          -->
+          {% if page.sidebar %}
+          <div class="column is-4-desktop">
+            <div class="post-sidebar-sticky-wrapper">
+              
+              <!-- 
+                Here we include the Table of Contents component.
+                The styling for this is defined in post.scss under .toc-box
+              -->
+              {% include toc.html %}
+
+            </div>
+          </div>
+          {% endif %}
+
+        </div>
+      </div>
+    </section>

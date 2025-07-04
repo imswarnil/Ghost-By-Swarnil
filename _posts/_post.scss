@@ -1,0 +1,114 @@
+// assets/css/post.scss
+---
+// Empty front matter is required for Jekyll to process this file
+---
+
+@charset "UTF-8";
+
+// --- Post Layout & Structure ---
+
+.post-layout {
+  // On mobile, this will reverse the column order,
+  // placing the sidebar (TOC) *above* the main content.
+  @media screen and (max-width: 1023px) {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+}
+
+// --- Article Content Styling ---
+
+.post-article {
+  .post-header {
+    margin-bottom: 2rem;
+    .post-meta {
+      color: #7a7a7a; // Bulma's $grey
+      font-size: 0.9rem;
+    }
+  }
+
+  // Improve readability of the content rendered from Markdown
+  .content {
+    line-height: 1.7;
+    font-size: 1.1rem;
+    color: #363636; // Bulma's $grey-darker
+
+    h2, h3, h4 {
+      margin-top: 2em;
+      margin-bottom: 1em;
+    }
+
+    // Style links within the content for better visibility
+    a {
+      font-weight: 600;
+      text-decoration: underline;
+      text-decoration-color: #dbdbdb; // Bulma's $border
+      transition: all 0.2s ease-in-out;
+      
+      &:hover {
+        background-color: #f1f1f1;
+        text-decoration-color: #4a4a4a;
+      }
+    }
+  }
+}
+
+// --- Sidebar & Table of Contents (TOC) ---
+
+// This is the container that will stick to the viewport
+.post-sidebar-sticky-wrapper {
+  position: sticky;
+  top: 2rem; // Adjust this value to control the distance from the top
+}
+
+// The main TOC box styling, inspired by your screenshot
+.toc-box {
+  background-color: #fdfdfd;
+  border: 1px solid #f0f0f0; // A very subtle border
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.07);
+
+  .toc-title {
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #4a4a4a; // Bulma's $grey-dark
+    margin-bottom: 1rem;
+    letter-spacing: 0.5px;
+  }
+
+  ul {
+    list-style: none;
+    margin: 0;
+    
+    li {
+      a {
+        padding: 0.6rem 0;
+        display: block;
+        color: #7a7a7a;
+        font-size: 0.95rem;
+        border-bottom: 1px solid #f0f0f0;
+        transition: all 0.2s ease;
+      }
+
+      // Last item should not have a border
+      &:last-child a {
+        border-bottom: none;
+      }
+      
+      // Hover state for links
+      &:hover a {
+        color: #363636;
+        transform: translateX(4px);
+      }
+      
+      // Active state (requires JavaScript to apply the .is-active class)
+      &.is-active a {
+        color: #363636;
+        font-weight: 700;
+        transform: translateX(4px);
+      }
+    }
+  }
+}
