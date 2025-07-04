@@ -4,8 +4,8 @@ description: "An open-source Jekyll theme crafted using the Bulma CSS framework.
 image: /assets/logos/logo.svg
 layout: default
 ---
- <!-- 1. HEADER / NAVBAR -->
-  <nav class="navbar" role="navigation" aria-label="main navigation">
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
         <div class="container">
             <div class="navbar-brand">
                 <a class="navbar-item" href="#">
@@ -49,8 +49,7 @@ layout: default
             </div>
         </div>
     </nav>
-    <!-- 2. HERO SECTION -->
-    <section class="section hero-section">
+<section class="section hero-section">
         <div class="container has-text-centered">
             <h1 class="title is-1 hero-title">
                 Independent technology<br>
@@ -60,9 +59,9 @@ layout: default
                 <p>Placeholder for Dashboard UI</p>
             </div>
         </div>
-    </section>
+</section>
     <!-- 3. INTRO TEXT SECTION -->
-    <section class="section">
+<section class="section">
         <div class="container" style="max-width: 720px;">
             <p class="is-size-4 has-text-weight-medium" style="line-height: 1.5;">
                 <strong>Ghost is a powerful app for professional publishers</strong> to create, share, and grow a business around their content. It comes with modern tools to build a website, publish content, send newsletters & offer paid subscriptions to members.
@@ -73,9 +72,9 @@ layout: default
                 </a>
             </p>
         </div>
-    </section>
+</section>
     <!-- 4. "COMPLETE CONTROL" SECTION (2-COLUMN) -->
-    <section class="section section-dark control-section">
+<section class="section section-dark control-section">
         <div class="container">
             <div class="columns is-vcentered is-variable is-8">
                 <div class="column is-5">
@@ -98,9 +97,9 @@ layout: default
                 </div>
             </div>
         </div>
-    </section>
+</section>
     <!-- 5. THEME SHOWCASE GRID -->
-    <section class="section section-dark theme-showcase-section">
+<section class="section section-dark theme-showcase-section">
         <div class="container">
             <div class="columns is-multiline is-centered">
                 <div class="column is-one-third-desktop is-half-tablet">
@@ -123,9 +122,9 @@ layout: default
                 </div>
             </div>
         </div>
-    </section>
+</section>
     <!-- 6. PUBLISH BY WEB & EMAIL SECTION -->
-    <section class="section publish-section" style="padding: 7rem 0;">
+<section class="section publish-section" style="padding: 7rem 0;">
         <div class="container has-text-centered">
             <p class="eyebrow-text" style="color: var(--color-purple);">Advanced Creator Tools</p>
             <h2 class="title is-2">Publish by web & email newsletter.</h2>
@@ -136,9 +135,9 @@ layout: default
                 <p>Placeholder for Ghost Editor UI</p>
             </div>
         </div>
-    </section>
+</section>
     <!-- 7. RICH MEDIA & NEWSLETTERS SECTIONS -->
-    <section class="section section-light-grey simple-text-section has-text-centered">
+ <section class="section section-light-grey simple-text-section has-text-centered">
         <div class="container">
             <div class="columns is-vcentered">
                 <div class="column">
@@ -151,9 +150,9 @@ layout: default
                 </div>
             </div>
         </div>
-    </section>
+</section>
     <!-- 8. TRANSFORM CLICKS SECTION (2-COLUMN with GLOW) -->
-    <section class="section section-dark glow-section">
+<section class="section section-dark glow-section">
         <div class="container">
             <div class="columns is-vcentered is-variable is-8">
                 <div class="column is-6">
@@ -175,9 +174,9 @@ layout: default
                 </div>
             </div>
         </div>
-    </section>
+</section>
     <!-- 9. MANAGE YOUR MEMBERSHIPS SECTION -->
-    <section class="section" style="padding: 7rem 0;">
+<section class="section" style="padding: 7rem 0;">
         <div class="container has-text-centered">
             <p class="eyebrow-text" style="color: var(--color-purple);">Run your business</p>
             <h2 class="title is-2">Manage your memberships.</h2>
@@ -186,4 +185,4 @@ layout: default
                 <p>Placeholder for Members List UI</p>
             </div>
         </div>
-    </section>
+</section>
