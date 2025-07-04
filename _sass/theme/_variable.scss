@@ -1,26 +1,12 @@
-// sass/_variables.scss
+// sass/theme/_variables.scss
 
-// --- 1. Typography & Fonts ---
-// Set the primary font to "Inter" to match Ghost
-$family-sans-serif: "Inter", sans-serif;
+// --- 1. DESIGN TOKENS (The Ghost Foundation) ---
+$font-main: 'Inter', sans-serif;
+$radius-main: 8px;
+$radius-large: 12px;
+$transition-main: all 0.2s ease-in-out;
 
-// Adjust base font sizes and weights to match the clean Ghost look
-$size-1: 4.5rem;    // For the main hero title
-$size-2: 2.8rem;    // For section titles
-$size-3: 1.75rem;
-$size-4: 1.25rem;
-$size-5: 1.1rem;
-$size-6: 1rem;
-$size-7: 0.8rem;    // For small "eyebrow" text
-
-$weight-light: 400; // Ghost uses 400 for light text
-$weight-normal: 500;
-$weight-medium: 600;
-$weight-semibold: 700;
-$weight-bold: 800; // Ghost's titles are very bold
-
-// --- 2. Colors ---
-// Map Ghost's color palette to Bulma's color variables
+// --- 2. COLORS (Ghost's Palette) ---
 $black: #15171a;
 $grey-darker: #343f44;
 $grey-dark: #738a94;
@@ -31,66 +17,51 @@ $pink: #ff247d;
 $purple: #ad26b4;
 $green: #5dcf1f;
 
-// Set the main theme colors. We'll use the grey palette primarily.
-$primary: $black; // Ghost's primary action color is often dark
+// --- 3. TYPOGRAPHY SCALES ---
+$family-sans-serif: $font-main;
+$weight-light: 400;
+$weight-normal: 500;
+$weight-medium: 600;
+$weight-semibold: 700;
+$weight-bold: 800;
+$size-1: 4.5rem;
+$size-2: 2.8rem;
+$size-3: 1.75rem;
+$size-4: 1.25rem;
+$size-5: 1.1rem;
+$size-6: 1rem;
+$size-7: 0.8rem;
+
+// --- 4. MAP TO BULMA'S VARIABLES ---
+// General
+$body-background-color: $white;
+$text: $grey-darker;
 $link: $grey-darker;
 $link-hover: $black;
 
-$info: #3eb0ef;    // Ghost's blue
+// Semantic Colors
+$primary: $black;
+$info: #3eb0ef;
 $success: $green;
-$warning: #ffd400; // Ghost's yellow
-$danger: #f05230;  // Ghost's red
+$warning: #ffd400;
+$danger: #f05230;
 
-// --- 3. Global Styles & Layout ---
-$body-background-color: $white;
-$text: $grey-darker;
-$text-light: $grey-dark;
-
-$radius: 5px; // Ghost uses subtle rounded corners
-$radius-large: 12px; // For larger cards and placeholders
-$radius-small: 3px;
-
-$section-padding: 6rem 1.5rem; // Increase vertical padding for more white space
-$box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
-$card-shadow: $box-shadow; // Apply the same shadow to cards
-
-// --- 4. Component-Specific Overrides ---
-
-// Buttons
-$button-background-color: $black;
-$button-color: $white;
-$button-family: $family-sans-serif;
-$button-weight: $weight-semibold;
-$button-radius: $radius;
-$button-border-width: 0; // Ghost's buttons are solid
-
-// Cards & Boxes (used for the dark dashboard UI)
-$card-background-color: $black;
-$card-color: $white;
-$card-header-color: $white;
+// Components
+$box-shadow: 0 10px 30px rgba($black, 0.07);
+$card-shadow: $box-shadow;
 $card-radius: $radius-large;
+$button-radius: $radius-main;
+$input-radius: $radius-main;
 
-// Inputs
-$input-background-color: $white;
-$input-border-color: $grey-light;
-$input-color: $text;
-$input-shadow: none; // No inner shadow
-$input-radius: $radius;
-$input-placeholder-color: $grey-dark;
+$section-padding: 7rem 1.5rem;
+$footer-padding: 5rem 1.5rem 3rem;
+$footer-background-color: $black;
 
-// Navbar
 $navbar-background-color: $white;
 $navbar-item-color: $grey-darker;
 $navbar-item-hover-color: $black;
-$navbar-item-hover-background-color: transparent;
-$navbar-item-active-color: $black;
-$navbar-item-active-background-color: transparent;
 
-// Titles
 $title-color: $black;
 $title-weight: $weight-bold;
-$title-line-height: 1.1;
-
 $subtitle-color: $grey-darker;
 $subtitle-weight: $weight-light;
-$subtitle-line-height: 1.6;
