@@ -26,7 +26,7 @@ description: "Personal website and portfolio of Swarnil Singhai, a Software Engi
 keywords: ["Swarnil Singhai", "Salesforce", "CRM Analytics", "Tableau CRM", "Einstein Analytics", "Apex", "LWC", "Software Engineer", "Twilio", "Bangalore", "Resume", "Portfolio"]
 timezone: Asia/Kolkata # Timezone for blog posts and alike
 short_name: "Swarnil" # The web application short name
-logo: "/assets/X.png" # Site logo
+logo: "/assets/X.p" # Site logo
 favicons: # Favicons are also used in the manifest file. Syntax is 'size: path'
   16: '/assets/logos/logo@16px.png'
   32: '/assets/logos/logo@32px.png'
